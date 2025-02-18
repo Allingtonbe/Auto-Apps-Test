@@ -26,6 +26,14 @@ getInfo "$installationPath"
 installationPath="/Applications/Audacity.app"
 getInfo "$installationPath"
 
+#blender
+installationPath="/Applications/Blender.app"
+getInfo "$installationPath"
+
+#calibrite profiler
+installationPath="/ Applications/calibrite PROFILER.app"
+getInfo "$installationPath"
+
 #clickshare
 installationPath="/Applications/ClickShare.app"
 getInfo "$installationPath"
@@ -90,8 +98,16 @@ getInfo "$installationPath"
 installationPath="/Applications/Easyfind.app"
 getInfo "$installationPath"
 
+#elgato
+installationPath="/Applications/Elgato Stream Deck.app"
+getInfo "$installationPath"
+
 #figma
 installationPath="/Applications/Figma.app"
+getInfo "$installationPath"
+
+#filemaker pro
+installationPath="/Applications/FileMaker Pro.app"
 getInfo "$installationPath"
 
 #filezilla
@@ -162,6 +178,10 @@ getInfo "$installationPath"
 installationPath="/Applications/logioptionsplus.app"
 getInfo "$installationPath"
 
+#maxon app
+installationPath="/Applications/Maxon.app"
+getInfo "$installationPath"
+
 #microsoftautoupdate
 installationPath="/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app"
 getInfo "$installationPath"
@@ -198,10 +218,6 @@ getInfo "$installationPath"
 installationPath="/Applications/Microsoft PowerPoint.app"
 getInfo "$installationPath"
 
-#microsoftremotedesktop
-installationPath="/Applications/Microsoft Remote Desktop.app"
-getInfo "$installationPath"
-
 #microsoftteamsclassic
 installationPath="/Applications/Microsoft Teams Classic.app"
 getInfo "$installationPath"
@@ -229,6 +245,18 @@ installedVersion=$(node --version | tr -d 'v')
 modifiedDate=$(date -r "/usr/local/bin/node" "+%Y-%m-%d")
 echo "NodeJS;$installedVersion;$modifiedDate"
 
+#nomad
+installationPath="/Applications/NoMAD.app"
+getInfo "$installationPath"
+
+#obs
+installationPath="/Applications/obs.app"
+getInfo "$installationPath"
+
+#onyX
+installationPath="/Applications/onyX.app"
+getInfo "$installationPath"
+
 #pgadmin4
 installationPath="/Applications/pgAdmin 4.app"
 getInfo "$installationPath"
@@ -254,6 +282,10 @@ echo "R;$installedVersion;$modifiedDate"
 installationPath="/Applications/RStudio.app"
 getInfo "$installationPath"
 
+#RODE central
+installationPath="/Applications/RODE central.app"
+getInfo "$installationPath"
+
 #signal
 installationPath="/Applications/Signal.app"
 getInfo "$installationPath"
@@ -270,12 +302,21 @@ getInfo "$installationPath"
 installationPath="/Applications/Spotify.app"
 getInfo "$installationPath"
 
+#swiftdialog
+installedVersion=$(/usr/local/bin/dialog -v)
+modifiedDate=$(date -r "/usr/local/bin/dialog" "+%Y-%m-%d")
+echo "swiftdialog;$installedVersion;$modifiedDate"
+
 #teamviewer
 installationPath="/Applications/TeamViewer.app"
 getInfo "$installationPath"
 
 #pcoipclient
 installationPath="/Applications/PCoIPClient.app"
+getInfo "$installationPath"
+
+#privileges
+installationPath="/Applications/privileges.app"
 getInfo "$installationPath"
 
 #textmate
@@ -288,6 +329,10 @@ getInfo "$installationPath"
 
 #thunderbird
 installationPath="/Applications/Thunderbird.app"
+getInfo "$installationPath"
+
+#UltiMaker Cura
+installationPath="/Applications/UltiMaker Cura.app"
 getInfo "$installationPath"
 
 #visualstudiocode
@@ -304,6 +349,10 @@ getInfo "$installationPath"
 
 #whatsapp
 installationPath="/Applications/WhatsApp.app"
+getInfo "$installationPath"
+
+#Windows
+installationPath="/Applications/Windows app.app"
 getInfo "$installationPath"
 
 #zoom

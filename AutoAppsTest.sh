@@ -18,6 +18,10 @@ echo "Application;Version;Date"
 installationPath="/Applications/Adobe Acrobat Reader.app"
 getInfo "$installationPath"
 
+#anydesk
+installationPath="/Applications/AnyDesk.app"
+getInfo "$installationPath"
+
 #audacity
 installationPath="/Applications/Audacity.app"
 getInfo "$installationPath"
@@ -64,6 +68,10 @@ getInfo "$installationPath"
 
 #cyberduck
 installationPath="/Applications/Cyberduck.app"
+getInfo "$installationPath"
+
+#deepl
+installationPath="/Applications/DeepL.app"
 getInfo "$installationPath"
 
 #discord
@@ -120,6 +128,10 @@ getInfo "$installationPath"
 
 #gpgsuite
 installationPath="/Library/Application Support/GPGTools/GPGSuite_Updater.app"
+getInfo "$installationPath"
+
+#handbrake
+installationPath="/Applications/HandBrake.app"
 getInfo "$installationPath"
 
 #imazingprofileeditor
@@ -223,6 +235,14 @@ getInfo "$installationPath"
 
 #postman
 installationPath="/Applications/Postman.app"
+getInfo "$installationPath"
+
+#pycharmce
+installationPath="/Applications/PyCharm CE.app"
+getInfo "$installationPath"
+
+#rapidapi
+installationPath="/Applications/RapidAPI.app"
 getInfo "$installationPath"
 
 #r

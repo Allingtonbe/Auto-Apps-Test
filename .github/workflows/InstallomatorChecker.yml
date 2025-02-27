@@ -40,6 +40,6 @@ jobs:
       - name: Run Installomator Check
         run: |
           echo Running Installomator Check
-          chmod +x $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh ${{ github.event.inputs.label }}
-          $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh
+          chmod +x $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh
+          $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh ${{ github.event.inputs.label }}
           echo Done

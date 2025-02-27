@@ -10,17 +10,13 @@ on:
         description: 'Installomator label to run'
         required: false
         default: 'firefoxpkg'
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+        
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  OneLabel:
+    # Run One Installomator label
     runs-on: macos-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    if: github.event.inputs.label != ''
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
         with:
           path: Auto-App-Test

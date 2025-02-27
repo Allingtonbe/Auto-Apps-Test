@@ -15,7 +15,7 @@ jobs:
   OneLabel:
     # Run One Installomator label
     runs-on: macos-latest
-    if: github.event.inputs.label != ''
+    if: github.event.inputs.label != 'AllLabels'
     steps:
       - uses: actions/checkout@v4
         with:

@@ -12,349 +12,447 @@ getInfo () {
     fi
 }
 
-echo "Application;Version;Date"
+label=$1
 
-#adobereaderdc
+# lowercase the label
+label=${label:l}
+
+#echo "Application;Version;Date"
+
+case $label in
+
+adobereaderdc)
 installationPath="/Applications/Adobe Acrobat Reader.app"
 getInfo "$installationPath"
+;;
 
-#anydesk
+anydesk)
 installationPath="/Applications/AnyDesk.app"
 getInfo "$installationPath"
+;;
 
-#audacity
+audacity)
 installationPath="/Applications/Audacity.app"
 getInfo "$installationPath"
+;;
 
-#blender
+blender)
 installationPath="/Applications/Blender.app"
 getInfo "$installationPath"
+;;
 
-#calibrite profiler
+calibriteprofiler)
 installationPath="/ Applications/calibrite PROFILER.app"
 getInfo "$installationPath"
+;;
 
-#clickshare
+clickshare)
 installationPath="/Applications/ClickShare.app"
 getInfo "$installationPath"
+;;
 
-#bbedit
+bbedit)
 installationPath="/Applications/BBEdit.app"
 getInfo "$installationPath"
+;;
 
-#bitwarden
+bitwarden)
 installationPath="/Applications/Bitwarden.app"
 getInfo "$installationPath"
+;;
 
-#brave
+brave)
 installationPath="/Applications/Brave Browser.app"
 getInfo "$installationPath"
+;;
 
-#caffeine
+caffeine)
 installationPath="/Applications/Caffeine.app"
 getInfo "$installationPath"
+;;
 
-#canva
+canva)
 installationPath="/Applications/Canva.app"
 getInfo "$installationPath"
+;;
 
-#cinema4d
+cinema4d)
 installationPath="/Applications/Maxon Cinema 4D 2024/Cinema 4D.app"
 getInfo "$installationPath"
+;;
 
-#citrixworkspace
+citrixworkspace)
 installationPath="/Applications/Citrix Workspace.app"
 getInfo "$installationPath"
+;;
 
-#connectfonts
+connectfonts)
 installationPath="/Applications/Connect Fonts.app"
 getInfo "$installationPath"
+;;
 
-#adobecreativeclouddesktop
+adobecreativeclouddesktop)
 installationPath="/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app"
 getInfo "$installationPath"
+;;
 
-#cyberduck
+cyberduck)
 installationPath="/Applications/Cyberduck.app"
 getInfo "$installationPath"
+;;
 
-#deepl
+deepl)
 installationPath="/Applications/DeepL.app"
 getInfo "$installationPath"
+;;
 
-#discord
+discord)
 installationPath="/Applications/Discord.app"
 getInfo "$installationPath"
+;;
 
-#drawio
+drawio)
 installationPath="/Applications/Draw.io.app"
 getInfo "$installationPath"
+;;
 
-#dropbox
+dropbox)
 installationPath="/Applications/Dropbox.app"
 getInfo "$installationPath"
+;;
 
-#easyfind
+easyfind)
 installationPath="/Applications/Easyfind.app"
 getInfo "$installationPath"
+;;
 
-#elgato
+elgatostreamdeck)
 installationPath="/Applications/Elgato Stream Deck.app"
 getInfo "$installationPath"
+;;
 
-#figma
+figma)
 installationPath="/Applications/Figma.app"
 getInfo "$installationPath"
+;;
 
-#filemaker pro
+filemakerpro)
 installationPath="/Applications/FileMaker Pro.app"
 getInfo "$installationPath"
+;;
 
-#filezilla
+filezilla)
 installationPath="/Applications/FileZilla.app"
 getInfo "$installationPath"
+;;
 
-#firefox
+firefoxpkg)
 installationPath="/Applications/Firefox.app"
 getInfo "$installationPath"
+;;
 
-#gimp
+gimp)
 installationPath="/Applications/GIMP.app"
 getInfo "$installationPath"
+;;
 
-#github
+githubdesktop)
 installationPath="/Applications/Github Desktop.app"
 getInfo "$installationPath"
+;;
 
-#gitkraken
+gitkraken)
 installationPath="/Applications/GitKraken.app"
 getInfo "$installationPath"
+;;
 
-#gotomeeting
+gotomeeting)
 installationPath="/Applications/GoToMeeting.app"
 getInfo "$installationPath"
+;;
 
-#googlechromepkg
+googlechromepkg)
 installationPath="/Applications/Google Chrome.app"
 getInfo "$installationPath"
+;;
 
-#googledrive
+googledrive)
 installationPath="/Applications/Google Drive.app"
 getInfo "$installationPath"
+;;
 
-#gpgsuite
+gpgsuite)
 installationPath="/Library/Application Support/GPGTools/GPGSuite_Updater.app"
 getInfo "$installationPath"
+;;
 
-#handbrake
+handbrake)
 installationPath="/Applications/HandBrake.app"
 getInfo "$installationPath"
+;;
 
-#imazingprofileeditor
+imazingprofileeditor)
 installationPath="/Applications/iMazing Profile Editor.app"
 getInfo "$installationPath"
+;;
 
-#inkscape
+inkscape)
 installationPath="/Applications/Inkscape.app"
 getInfo "$installationPath"
+;;
 
-#iterm2
+iterm2)
 installationPath="/Applications/iTerm.app"
 getInfo "$installationPath"
+;;
 
-#jetbrainsintellijideace
+jetbrainsintellijideace)
 installationPath="/Applications/IntelliJ IDEA CE.app"
 getInfo "$installationPath"
+;;
 
-#keka
+keka)
 installationPath="/Applications/Keka.app"
 getInfo "$installationPath"
+;;
 
-#lastpass
+lastpass)
 installationPath="/Applications/LastPass.app"
 getInfo "$installationPath"
+;;
 
-#logioptionsplus
+logitechoptionsplus)
 installationPath="/Applications/logioptionsplus.app"
 getInfo "$installationPath"
+;;
 
-#maxon app
+maxonapp)
 installationPath="/Applications/Maxon.app"
 getInfo "$installationPath"
+;;
 
-#microsoftautoupdate
+microsoftautoupdate)
 installationPath="/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app"
 getInfo "$installationPath"
+;;
 
-#microsoftcompanyportal
+microsoftcompanyportal)
 installationPath="/Applications/Company Portal.app"
 getInfo "$installationPath"
+;;
 
-#microsoftdefenderatp
+microsoftdefenderatp)
 installationPath="/Applications/Microsoft Defender.app"
 getInfo "$installationPath"
+;;
 
-#microsoftedge
+microsoftedge)
 installationPath="/Applications/Microsoft Edge.app"
 getInfo "$installationPath"
+;;
 
-#microsoftexcel
+microsoftexcel)
 installationPath="/Applications/Microsoft Excel.app"
 getInfo "$installationPath"
+;;
 
-#microsoftonedrive
+microsoftonedrive)
 installationPath="/Applications/OneDrive.app"
 getInfo "$installationPath"
+;;
 
-#microsoftonenote
+microsoftonenote)
 installationPath="/Applications/Microsoft OneNote.app"
 getInfo "$installationPath"
+;;
 
-#microsoftoutlook
+microsoftoutlook)
 installationPath="/Applications/Microsoft Outlook.app"
 getInfo "$installationPath"
+;;
 
-#microsoftpowerpoint
+microsoftpowerpoint)
 installationPath="/Applications/Microsoft PowerPoint.app"
 getInfo "$installationPath"
+;;
 
-#microsoftteamsclassic
+microsoftteamsclassic)
 installationPath="/Applications/Microsoft Teams Classic.app"
 getInfo "$installationPath"
+;;
 
-#microsoftteamsnew
+microsoftteamsnew)
 installationPath="/Applications/Microsoft Teams.app"
 getInfo "$installationPath"
+;;
 
-#microsoftword
+microsoftword)
 installationPath="/Applications/Microsoft Word.app"
 getInfo "$installationPath"
+;;
 
-#miro
+miro)
 installationPath="/Applications/Miro.app"
 getInfo "$installationPath"
+;;
 
-#nextcloud
+nextcloud)
 installationPath="/Applications/Nextcloud.app"
 installedVersion=$(defaults read "$installationPath/Contents/Info.plist" CFBundleShortVersionString)
 modifiedDate=$(date -r "$installationPath/Contents/Info.plist" "+%Y-%m-%d")
 echo "Nextcloud; $installedVersion; $modifiedDate"
+;;
 
-#nodejs
+nodejs)
 installedVersion=$(node --version | tr -d 'v')
 modifiedDate=$(date -r "/usr/local/bin/node" "+%Y-%m-%d")
 echo "NodeJS;$installedVersion;$modifiedDate"
+;;
 
-#nomad
+nomad)
 installationPath="/Applications/NoMAD.app"
 getInfo "$installationPath"
+;;
 
-#obs
+obs)
 installationPath="/Applications/obs.app"
 getInfo "$installationPath"
+;;
 
-#onyX
+onyX)
 installationPath="/Applications/onyX.app"
 getInfo "$installationPath"
+;;
 
-#pgadmin4
+pgadmin4)
 installationPath="/Applications/pgAdmin 4.app"
 getInfo "$installationPath"
+;;
 
-#postman
+postman)
 installationPath="/Applications/Postman.app"
 getInfo "$installationPath"
+;;
 
-#pycharmce
+pycharmce)
 installationPath="/Applications/PyCharm CE.app"
 getInfo "$installationPath"
+;;
 
-#rapidapi
+rapidapi)
 installationPath="/Applications/RapidAPI.app"
 getInfo "$installationPath"
+;;
 
-#r
+r)
 installedVersion=$(R --version | head -n 1 | cut -d ' ' -f3)
 modifiedDate=$(R --version | head -n 1 | cut -d ' ' -f4 | tr -d '(' | tr -d ')')
 echo "R;$installedVersion;$modifiedDate"
+;;
 
-#rstudio
+rstudio)
 installationPath="/Applications/RStudio.app"
 getInfo "$installationPath"
+;;
 
-#RODE central
+rodecentral)
 installationPath="/Applications/RODE central.app"
 getInfo "$installationPath"
+;;
 
-#signal
+signal)
 installationPath="/Applications/Signal.app"
 getInfo "$installationPath"
+;;
 
-#sketchupviewer
+sketchupviewer)
 installationPath="/Applications/SketchUpViewer.app"
 getInfo "$installationPath"
+;;
 
-#slack
+slack)
 installationPath="/Applications/Slack.app"
 getInfo "$installationPath"
+;;
 
-#spotify
+spotify)
 installationPath="/Applications/Spotify.app"
 getInfo "$installationPath"
+;;
 
-#swiftdialog
+swiftdialog)
 installedVersion=$(/usr/local/bin/dialog -v)
 modifiedDate=$(date -r "/usr/local/bin/dialog" "+%Y-%m-%d")
 echo "swiftdialog;$installedVersion;$modifiedDate"
+;;
 
-#teamviewer
+teamviewer)
 installationPath="/Applications/TeamViewer.app"
 getInfo "$installationPath"
+;;
 
-#pcoipclient
+pcoipclient)
 installationPath="/Applications/PCoIPClient.app"
 getInfo "$installationPath"
+;;
 
-#privileges
+privileges)
 installationPath="/Applications/privileges.app"
 getInfo "$installationPath"
+;;
 
-#textmate
+textmate)
 installationPath="/Applications/TextMate.app"
 getInfo "$installationPath"
+;;
 
-#theunarchiver
+theunarchiver)
 installationPath="/Applications/The Unarchiver.app"
 getInfo "$installationPath"
+;;
 
-#thunderbird
+thunderbird)
 installationPath="/Applications/Thunderbird.app"
 getInfo "$installationPath"
+;;
 
-#UltiMaker Cura
+ultimakercura)
 installationPath="/Applications/UltiMaker Cura.app"
 getInfo "$installationPath"
+;;
 
-#visualstudiocode
+visualstudiocode)
 installationPath="/Applications/Visual Studio Code.app"
 getInfo "$installationPath"
+;;
 
-#vlc
+vlc)
 installationPath="/Applications/VLC.app"
 getInfo "$installationPath"
+;;
 
-#wacomdrivers
+wacomdrivers)
 installationPath="/Applications/Wacom Tablet.localized/Wacom Center.app"
 getInfo "$installationPath"
+;;
 
-#whatsapp
+whatsapp)
 installationPath="/Applications/WhatsApp.app"
 getInfo "$installationPath"
+;;
 
-#Windows
+windows)
 installationPath="/Applications/Windows app.app"
 getInfo "$installationPath"
+;;
 
-#zoom
+zoom)
 installationPath="/Applications/Zoom.us.app"
 getInfo "$installationPath"
+;;
+
+*)
+echo "Label not found"
+;;
+
+esac

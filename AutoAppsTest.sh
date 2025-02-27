@@ -406,7 +406,7 @@ do
         getInfo "$installationPath"
         ;;
 
-        privileges)
+        privileges2)
         installationPath="/Applications/privileges.app"
         getInfo "$installationPath"
         ;;

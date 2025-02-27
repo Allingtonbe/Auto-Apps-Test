@@ -17,8 +17,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+        with:
+          path: Auto-App-Test
 
       - uses: actions/checkout@v4
         with:
           repository: Allingtonbe/Installomator
           ref: Allington-Release
+          path: Installomator
+
+      - name: Run Installomator
+        run: |
+          echo Running Installomator
+          $GITHUB_WORKSPACE/Installomator/Installomator.sh firefoxpkg NOTIFY=success DEBUG=0
+          echo Done

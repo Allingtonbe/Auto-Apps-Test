@@ -29,5 +29,5 @@ jobs:
       - name: Run Installomator
         run: |
           echo Running Installomator
-          $GITHUB_WORKSPACE/Installomator/Installomator.sh firefoxpkg NOTIFY=success DEBUG=0
+          sudo $GITHUB_WORKSPACE/Installomator/Installomator.sh firefoxpkg NOTIFY=success DEBUG=0
           echo Done

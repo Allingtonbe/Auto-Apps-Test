@@ -35,5 +35,6 @@ jobs:
       - name: Run Installomator Check
         run: |
           echo Running Installomator Check
+          chmod +x $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh
           $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh
           echo Done

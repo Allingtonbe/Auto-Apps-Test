@@ -13,7 +13,7 @@ on:
         
 jobs:
   OneLabel:
-    # Run One Installomator label
+    # Run one Installomator label
     runs-on: macos-latest
     if: github.event.inputs.label != 'AllLabels'
     steps:
@@ -38,4 +38,32 @@ jobs:
           echo Running Installomator Check
           chmod +x $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh
           $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh ${{ github.event.inputs.label }}
+          echo Done
+          
+  AllLabels:
+    # Run all Installomator labels
+    runs-on: macos-latest
+    if: github.event.inputs.label == 'AllLabels'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: Auto-App-Test
+
+      - uses: actions/checkout@v4
+        with:
+          repository: Allingtonbe/Installomator
+          ref: Allington-Release
+          path: Installomator
+
+      - name: Run Installomator
+        run: |
+          echo Running Installomator
+          sudo $GITHUB_WORKSPACE/Auto-App-Test/RunInstallomator.sh
+          echo Done
+
+      - name: Run Installomator Check
+        run: |
+          echo Running Installomator Check
+          chmod +x $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh
+          $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh
           echo Done

@@ -9,5 +9,5 @@ labels=($fileItemString)
 
 for label in "${labels[@]}"
 do
-    $InstallomatorPath/Installomator.sh $label
+    $InstallomatorPath/Installomator.sh $label NOTIFY=success DEBUG=0
 done

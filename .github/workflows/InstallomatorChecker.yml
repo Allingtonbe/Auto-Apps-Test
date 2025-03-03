@@ -58,7 +58,7 @@ jobs:
       - name: Run Installomator
         run: |
           echo Running Installomator
-          sudo $GITHUB_WORKSPACE/Auto-App-Test/RunInstallomator.sh
+          sudo $GITHUB_WORKSPACE/Auto-App-Test/RunInstallomator.sh $GITHUB_WORKSPACE/Auto-App-Test $GITHUB_WORKSPACE/Installomator
           echo Done
 
       - name: Run Installomator Check

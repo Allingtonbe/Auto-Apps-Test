@@ -15,7 +15,7 @@ getInfo () {
 if [ $# -eq 0 ]
 then
     echo "No arguments supplied"
-    fileItemString=$(cat ./Labels.txt |tr "\n" " ")
+    fileItemString=$(cat ./Auto-App-Test/Labels.txt |tr "\n" " ")
     labels=($fileItemString)
     #echo ${fileItemArray[*]}
 else

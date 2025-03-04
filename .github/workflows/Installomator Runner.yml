@@ -1,0 +1,29 @@
+name: Installomator Runner
+
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: 'Installomator label to run'
+        required: true
+        default: 'firefoxpkg'
+      debug:
+        description: 'Debug'
+        required: true
+        default: '1'
+        
+jobs:
+  Installomator:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: Allingtonbe/Installomator
+          ref: Allington-Release
+          path: Installomator
+
+      - name: Run Installomator
+        run: |
+          echo Running Installomator
+          sudo $GITHUB_WORKSPACE/Installomator/Installomator.sh ${{ github.event.inputs.label }} NOTIFY=success DEBUG=${{ github.event.inputs.debug }}
+          echo Done

@@ -52,7 +52,7 @@ do
         ;;
 
         calibriteprofiler)
-        installationPath="/ Applications/calibrite PROFILER.app"
+        installationPath="/Applications/calibrite PROFILER.app"
         getInfo "$installationPath"
         ;;
 

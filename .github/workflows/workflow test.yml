@@ -15,4 +15,4 @@ jobs:
         run: |
           echo Test
           ls
-          cat $GITHUB_WORKSPACE/Auto-App-Test/Labels.txt
+          cat ./Auto-App-Test/Labels.txt

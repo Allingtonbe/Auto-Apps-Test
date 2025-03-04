@@ -87,7 +87,7 @@ do
         ;;
 
         cinema4d)
-        installationPath="/Applications/Maxon Cinema 4D 2024/Cinema 4D.app"
+        installationPath="/Applications/Maxon Cinema 4D 2025/Cinema 4D.app"
         getInfo "$installationPath"
         ;;
 

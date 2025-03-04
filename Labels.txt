@@ -51,6 +51,7 @@ microsoftoutlook
 microsoftpowerpoint
 microsoftteamsclassic
 microsoftteamsnew
+microsoftwindowsapp
 microsoftword
 miro
 nextcloud
@@ -81,5 +82,4 @@ visualstudiocode
 vlc
 wacomdrivers
 whatsapp
-windows
 zoom

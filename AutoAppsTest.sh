@@ -296,6 +296,11 @@ do
         getInfo "$installationPath"
         ;;
 
+        microsoftwindowsapp)
+        installationPath="/Applications/Windows app.app"
+        getInfo "$installationPath"
+        ;;
+
         microsoftword)
         installationPath="/Applications/Microsoft Word.app"
         getInfo "$installationPath"
@@ -448,11 +453,6 @@ do
 
         whatsapp)
         installationPath="/Applications/WhatsApp.app"
-        getInfo "$installationPath"
-        ;;
-
-        windows)
-        installationPath="/Applications/Windows app.app"
         getInfo "$installationPath"
         ;;
 

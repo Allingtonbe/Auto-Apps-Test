@@ -73,7 +73,7 @@ spotify
 swiftdialog
 teamviewer
 pcoipclient
-privileges
+privileges2
 textmate
 theunarchiver
 thunderbird

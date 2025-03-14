@@ -1,8 +1,8 @@
 |Label|URL|
 |---|---|
 |adobereaderdc|https://helpx.adobe.com/acrobat/release-note/release-notes-acrobat-reader.html|
-|anydesk||
-|audacity||
+|anydesk|https://anydesk.com/en/changelog/mac-os|
+|audacity|https://github.com/audacity/audacity/releases|
 |blender||
 |calibriteprofiler||
 |clickshare||
@@ -25,8 +25,8 @@
 |figma||
 |filemakerpro||
 |filezilla||
-|firefoxpkg||
-|gimp||
+|firefoxpkg|https://bofa.cocolabs.dev/mozilla_firefox/latest_versions.html|
+|gimp|https://www.gimp.org/downloads/|
 |githubdesktop||
 |gitkraken||
 |gotomeeting||
@@ -38,7 +38,7 @@
 |inkscape||
 |iterm2||
 |jetbrainsintellijideace||
-|keka||
+|keka|https://changelog.keka.io/|
 |lastpass||
 |logitechoptionsplus||
 |maxonapp||
@@ -70,7 +70,7 @@
 |rodecentral||
 |signal||
 |sketchupviewer||
-|slack||
+|slack|https://slack.com/release-notes/mac|
 |spotify||
 |swiftdialog||
 |teamviewer||
@@ -78,10 +78,10 @@
 |privileges2||
 |textmate||
 |theunarchiver||
-|thunderbird||
+|thunderbird|https://www.thunderbird.net/en-US/thunderbird/releases/|
 |ultimakercura||
 |visualstudiocode|https://mofa.cocolabs.dev/standalone_apps/standalone_current_version_en.html|
-|vlc||
+|vlc|https://www.videolan.org/vlc/releases/|
 |wacomdrivers||
 |whatsapp||
 |zoom||

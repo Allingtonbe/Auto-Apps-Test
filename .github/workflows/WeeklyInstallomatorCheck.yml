@@ -1,7 +1,8 @@
 name: Weekly Installomator Checker
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '45 10 * * 2'
         
 jobs:
   AllLabels:

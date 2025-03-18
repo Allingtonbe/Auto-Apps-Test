@@ -1,0 +1,33 @@
+name: Weekly Installomator Checker
+
+on:
+  schedule:
+    - cron: '35 10 * * 2'
+        
+jobs:
+  AllLabels:
+    # Run all Installomator labels
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: Auto-App-Test
+
+      - uses: actions/checkout@v4
+        with:
+          repository: Allingtonbe/Installomator
+          ref: Allington-Release
+          path: Installomator
+
+      - name: Run Installomator
+        run: |
+          echo Running Installomator
+          sudo $GITHUB_WORKSPACE/Auto-App-Test/RunInstallomator.sh $GITHUB_WORKSPACE/Auto-App-Test $GITHUB_WORKSPACE/Installomator
+          echo Done
+
+      - name: Run Installomator Check
+        run: |
+          echo Running Installomator Check
+          chmod +x $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh
+          $GITHUB_WORKSPACE/Auto-App-Test/AutoAppsTest.sh
+          echo Done

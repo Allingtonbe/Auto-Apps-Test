@@ -9,6 +9,7 @@ bitwarden
 brave
 caffeine
 canva
+chatgpt
 cinema4d
 citrixworkspace
 connectfonts

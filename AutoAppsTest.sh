@@ -2,9 +2,10 @@
 
 getInfo () {
     infoFile="$1/Contents/Info.plist"
+    versionKey=${2:-CFBundleShortVersionString} # Use the second parameter or default to CFBundleShortVersionString
     if [ -f "$infoFile" ]; then
         applicationName=$(defaults read "$infoFile" CFBundleName)
-        installedVersion=$(defaults read "$infoFile" CFBundleShortVersionString)
+        installedVersion=$(defaults read "$infoFile" "$versionKey")
         modifiedDate=$(date -r "$infoFile" "+%Y-%m-%d")
         echo "$applicationName;$installedVersion;$modifiedDate"
     else
@@ -25,7 +26,7 @@ else
     labels=$label
 fi
 
-#echo "Application;Version;Date"
+echo "Application;Version;Date"
 
 for label in "${labels[@]}"
 do
@@ -83,6 +84,11 @@ do
 
         canva)
         installationPath="/Applications/Canva.app"
+        getInfo "$installationPath"
+        ;;
+
+        chatgpt)
+        installationPath="/Applications/ChatGPT.app"
         getInfo "$installationPath"
         ;;
 
@@ -263,7 +269,7 @@ do
 
         microsoftexcel)
         installationPath="/Applications/Microsoft Excel.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "CFBundleVersion"
         ;;
 
         microsoftonedrive)
@@ -273,17 +279,17 @@ do
 
         microsoftonenote)
         installationPath="/Applications/Microsoft OneNote.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "CFBundleVersion"
         ;;
 
         microsoftoutlook)
         installationPath="/Applications/Microsoft Outlook.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "CFBundleVersion"
         ;;
 
         microsoftpowerpoint)
         installationPath="/Applications/Microsoft PowerPoint.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "CFBundleVersion"
         ;;
 
         microsoftteamsclassic)
@@ -303,7 +309,7 @@ do
 
         microsoftword)
         installationPath="/Applications/Microsoft Word.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "CFBundleVersion"
         ;;
 
         miro)
@@ -313,9 +319,7 @@ do
 
         nextcloud)
         installationPath="/Applications/Nextcloud.app"
-        installedVersion=$(defaults read "$installationPath/Contents/Info.plist" CFBundleShortVersionString)
-        modifiedDate=$(date -r "$installationPath/Contents/Info.plist" "+%Y-%m-%d")
-        echo "Nextcloud; $installedVersion; $modifiedDate"
+        getInfo "$installationPath" "CFBundleShortVersionString"
         ;;
 
         nodejs)

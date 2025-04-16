@@ -51,8 +51,8 @@
 |microsoftonenote|https://mofa.cocolabs.dev/standalone_apps/standalone_current_version_en.html|
 |microsoftoutlook|https://mofa.cocolabs.dev/standalone_apps/standalone_current_version_en.html|
 |microsoftpowerpoint|https://mofa.cocolabs.dev/standalone_apps/standalone_current_version_en.html|
-|microsoftteamsclassic|https://mofa.cocolabs.dev/standalone_apps/standalone_current_version_en.html|
-|microsoftteamsnew|https://mofa.cocolabs.dev/standalone_apps/standalone_current_version_en.html|
+|microsoftteamsclassic|https://learn.microsoft.com/en-us/officeupdates/teams-app-versioning|
+|microsoftteamsnew|https://learn.microsoft.com/en-us/officeupdates/teams-app-versioning|
 |microsoftwindowsapp|https://mofa.cocolabs.dev/standalone_apps/standalone_current_version_en.html|
 |microsoftword|https://mofa.cocolabs.dev/standalone_apps/standalone_current_version_en.html|
 |miro||

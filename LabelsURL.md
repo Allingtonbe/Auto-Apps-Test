@@ -33,7 +33,7 @@
 |googlechromepkg|https://chromiumdash.appspot.com/releases?platform=Mac|
 |googledrive||
 |gpgsuite|https://gpgtools.org/releases/gpgsuite/2023.3/release-notes.html|
-|handbrake||
+|handbrake|https://github.com/HandBrake/HandBrake/releases|
 |imazingprofileeditor|https://imazing.com/profile-editor/download|
 |inkscape|https://inkscape.org|
 |iterm2|https://iterm2.com/downloads.html|

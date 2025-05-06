@@ -29,6 +29,7 @@ gimp
 githubdesktop
 gitkraken
 gotomeeting
+googleearth
 googlechromepkg
 googledrive
 gpgsuite
@@ -47,10 +48,7 @@ microsoftdefenderatp
 microsoftedge
 microsoftexcel
 microsoftonedrive
-microsoftonenote
-microsoftoutlook
 microsoftpowerpoint
-microsoftteamsclassic
 microsoftteamsnew
 microsoftwindowsapp
 microsoftword

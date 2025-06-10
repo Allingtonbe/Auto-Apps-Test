@@ -3,8 +3,8 @@
 |adobereaderdc|https://helpx.adobe.com/acrobat/release-note/release-notes-acrobat-reader.html|
 |anydesk|https://anydesk.com/en/changelog/mac-os|
 |audacity|https://github.com/audacity/audacity/releases|
-|blender||
-|calibriteprofiler||
+|blender|https://www.blender.org/download/|
+|calibriteprofiler|https://calibrite.com/us/software-downloads/|
 |clickshare||
 |bbedit|https://www.barebones.com/support/bbedit/updates.html|
 |bitwarden||
@@ -15,7 +15,7 @@
 |citrixworkspace|https://www.citrix.com/downloads/workspace-app/|
 |connectfonts||
 |adobecreativeclouddesktop||
-|cyberduck||
+|cyberduck|https://cyberduck.io/download/|
 |deepl||
 |discord||
 |drawio||
@@ -32,7 +32,7 @@
 |gotomeeting|https://support.goto.com/meeting/help/whats-new-in-goto-meeting|
 |googlechromepkg|https://chromiumdash.appspot.com/releases?platform=Mac|
 |googledrive||
-|gpgsuite|https://gpgtools.org/releases/gpgsuite/2023.3/release-notes.html|
+|gpgsuite|https://gpgtools.org|
 |handbrake|https://github.com/HandBrake/HandBrake/releases|
 |imazingprofileeditor|https://imazing.com/profile-editor/download|
 |inkscape|https://inkscape.org|
@@ -59,10 +59,12 @@
 |nextcloud||
 |nodejs||
 |nomad|https://nomad.menu/support/|
-|obs||
+|obs|https://obsproject.com|
 |onyX|https://www.titanium-software.fr/en/onyx.html|
+|pcoipclient||
 |pgadmin4||
 |postman||
+|privileges2|https://github.com/SAP/macOS-enterprise-privileges|
 |pycharmce||
 |rapidapi|https://paw.cloud|
 |r||
@@ -74,10 +76,8 @@
 |spotify|https://www.spotify.com/us/opensource/|
 |swiftdialog|https://github.com/swiftDialog/swiftDialog/releases|
 |teamviewer||
-|pcoipclient||
-|privileges2||
 |textmate|https://macromates.com/download|
-|theunarchiver||
+|theunarchiver|https://theunarchiver.com|
 |thunderbird|https://www.thunderbird.net/en-US/thunderbird/releases/|
 |ultimakercura||
 |visualstudiocode|https://mofa.cocolabs.dev/standalone_apps/standalone_current_version_en.html|

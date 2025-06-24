@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# $1 = app path, $2 = version key (default: CFBundleShortVersionString), $3 = name key (default: CFBundleName)
 getInfo () {
     infoFile="$1/Contents/Info.plist"
-    versionKey=${2:-CFBundleShortVersionString} # Use the second parameter or default to CFBundleShortVersionString
+    versionKey=${2:-CFBundleShortVersionString}
+    nameKey=${3:-CFBundleName}
     if [ -f "$infoFile" ]; then
-        applicationName=$(defaults read "$infoFile" CFBundleName)
+        applicationName=$(defaults read "$infoFile" "$nameKey")
         installedVersion=$(defaults read "$infoFile" "$versionKey")
         modifiedDate=$(date -r "$infoFile" "+%Y-%m-%d")
         echo "$applicationName;$installedVersion;$modifiedDate"
@@ -15,10 +17,10 @@ getInfo () {
 
 if [ $# -eq 0 ]
 then
+    # No arguments supplied, read from Labels.txt. Ignore lines starting with #.
     echo "No arguments supplied"
-    fileItemString=$(cat ./Auto-App-Test/Labels.txt |tr "\n" " ")
+    fileItemString=$(grep -v '^#' ./Auto-App-Test/Labels.txt | tr "\n" " ")
     labels=($fileItemString)
-    #echo ${fileItemArray[*]}
 else
     label=$1
     # lowercase the label
@@ -319,7 +321,7 @@ do
 
         nextcloud)
         installationPath="/Applications/Nextcloud.app"
-        getInfo "$installationPath" "CFBundleShortVersionString"
+        getInfo "$installationPath" "CFBundleShortVersionString" "CFBundleExecutable"
         ;;
 
         nodejs)
@@ -466,7 +468,7 @@ do
         ;;
 
         *)
-        echo "Label not found"
+        echo "Label $label not found"
         ;;
 
         esac

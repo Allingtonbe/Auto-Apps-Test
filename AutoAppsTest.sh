@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Returns 0 (true) if the provided date (format: YYYY-MM-DD) is more than 2 months ago, 1 (false) otherwise
+is_out_of_date() {
+    input_date="$1"
+    input_sec=$(date -j -f "%Y-%m-%d" "$input_date" "+%s" 2>/dev/null)
+    two_months_ago_sec=$(date -v-2m "+%s")
+    if [ "$input_sec" -lt "$two_months_ago_sec" ]; then
+        echo "Not OK"
+    else
+        echo "OK"
+    fi
+}
+
 # $1 = app path, $2 = version key (default: CFBundleShortVersionString), $3 = name key (default: CFBundleName)
 getInfo () {
     infoFile="$1/Contents/Info.plist"
@@ -9,9 +21,10 @@ getInfo () {
         applicationName=$(defaults read "$infoFile" "$nameKey")
         installedVersion=$(defaults read "$infoFile" "$versionKey")
         modifiedDate=$(date -r "$infoFile" "+%Y-%m-%d")
-        echo "$applicationName;$installedVersion;$modifiedDate"
+        flag=$(is_out_of_date "$modifiedDate")
+        echo "$applicationName;$installedVersion;$modifiedDate;$flag"
     else
-        echo "$1;-;-"
+        echo "$1;-;-;-"
     fi
 }
 
@@ -28,7 +41,7 @@ else
     labels=$label
 fi
 
-echo "Application;Version;Date"
+echo "Application;Version;Date;Flag"
 
 for label in "${labels[@]}"
 do
@@ -332,7 +345,8 @@ do
         nodejs)
         installedVersion=$(node --version | tr -d 'v')
         modifiedDate=$(date -r "/usr/local/bin/node" "+%Y-%m-%d")
-        echo "NodeJS;$installedVersion;$modifiedDate"
+        flag=$(is_out_of_date "$modifiedDate")
+        echo "NodeJS;$installedVersion;$modifiedDate;$flag"
         ;;
 
         nomad)
@@ -373,7 +387,8 @@ do
         r)
         installedVersion=$(R --version | head -n 1 | cut -d ' ' -f3)
         modifiedDate=$(R --version | head -n 1 | cut -d ' ' -f4 | tr -d '(' | tr -d ')')
-        echo "R;$installedVersion;$modifiedDate"
+        flag=$(is_out_of_date "$modifiedDate")
+        echo "R;$installedVersion;$modifiedDate;$flag"
         ;;
 
         rstudio)
@@ -409,7 +424,8 @@ do
         swiftdialog)
         installedVersion=$(/usr/local/bin/dialog -v)
         modifiedDate=$(date -r "/usr/local/bin/dialog" "+%Y-%m-%d")
-        echo "swiftdialog;$installedVersion;$modifiedDate"
+        flag=$(is_out_of_date "$modifiedDate")
+        echo "swiftdialog;$installedVersion;$modifiedDate;$flag"
         ;;
 
         teamviewer)

@@ -189,6 +189,11 @@ do
         getInfo "$installationPath"
         ;;
 
+        googleearth)
+        installationPath="/Applications/Google Earth Pro.app"
+        getInfo "$installationPath"
+        ;;
+
         googlechromepkg)
         installationPath="/Applications/Google Chrome.app"
         getInfo "$installationPath"

@@ -4,15 +4,15 @@
 |anydesk|https://anydesk.com/en/changelog/mac-os|
 |audacity|https://github.com/audacity/audacity/releases|
 |blender|https://www.blender.org/download/|
-|calibriteprofiler|https://calibrite.com/us/software-downloads/|
-|clickshare||
 |bbedit|https://www.barebones.com/support/bbedit/updates.html|
 |bitwarden||
 |brave||
 |caffeine|https://www.caffeine-app.net|
+|calibriteprofiler|https://calibrite.com/us/software-downloads/|
 |canva||
 |cinema4d|https://www.maxon.net/en/downloads|
 |citrixworkspace|https://www.citrix.com/downloads/workspace-app/|
+|clickshare||
 |connectfonts||
 |adobecreativeclouddesktop||
 |cyberduck|https://cyberduck.io/download/|
@@ -30,6 +30,7 @@
 |githubdesktop||
 |gitkraken||
 |gotomeeting|https://support.goto.com/meeting/help/whats-new-in-goto-meeting|
+|googleearthpro|https://support.google.com/earth/answer/40901?hl=en#zippy=%2Cearth-version|
 |googlechromepkg|https://chromiumdash.appspot.com/releases?platform=Mac|
 |googledrive||
 |gpgsuite|https://gpgtools.org|

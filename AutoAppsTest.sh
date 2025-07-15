@@ -231,7 +231,7 @@ do
 
         googledrive)
         installationPath="/Applications/Google Drive.app"
-        getInfo "$installationPath" "googledrive"
+        getInfo "$installationPath" "googledrive" "CFBundleVersion"
         ;;
 
         gpgsuite)

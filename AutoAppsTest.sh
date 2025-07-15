@@ -1,30 +1,47 @@
 #!/bin/bash
 
-# Returns 0 (true) if the provided date (format: YYYY-MM-DD) is more than 2 months ago, 1 (false) otherwise
-is_out_of_date() {
+# Returns "Not OK" if the provided date (format: YYYY-MM-DD) is more than 2 months ago,
+# or if two version numbers are provided and they are different. Otherwise, returns "OK".
+validate() {
     input_date="$1"
+    version1="$2"
+    version2="$3"
     input_sec=$(date -j -f "%Y-%m-%d" "$input_date" "+%s" 2>/dev/null)
     two_months_ago_sec=$(date -v-2m "+%s")
-    if [ "$input_sec" -lt "$two_months_ago_sec" ]; then
+    if [ -z "$version1" ] || [ -z "$version2" ]; then
+        # If one of the versions is not provided, it's Not OK
+        echo "Not OK"
+    elif [ "$version1" != "$version2" ]; then
+        # If the versions are different, it's Not OK
+        echo "Not OK"
+    elif [ "$input_sec" -lt "$two_months_ago_sec" ]; then
+        # If the date is more than 2 months ago, it's Not OK
         echo "Not OK"
     else
+        # If the date is within 2 months and versions match, it's OK
         echo "OK"
     fi
 }
 
-# $1 = app path, $2 = version key (default: CFBundleShortVersionString), $3 = name key (default: CFBundleName)
+getLogInfo () {
+    latest_version=$(cat /var/log/Installomator.log | grep ": $1 : Latest version" | tail -1 | awk '{print $NF}')
+    echo "$latest_version"
+}
+
+# $1 = app path, $2 = label, $3 = version key (default: CFBundleShortVersionString), $4 = name key (default: CFBundleName)
 getInfo () {
     infoFile="$1/Contents/Info.plist"
-    versionKey=${2:-CFBundleShortVersionString}
-    nameKey=${3:-CFBundleName}
+    versionKey=${3:-CFBundleShortVersionString}
+    nameKey=${4:-CFBundleName}
     if [ -f "$infoFile" ]; then
         applicationName=$(defaults read "$infoFile" "$nameKey")
         installedVersion=$(defaults read "$infoFile" "$versionKey")
         modifiedDate=$(date -r "$infoFile" "+%Y-%m-%d")
-        flag=$(is_out_of_date "$modifiedDate")
-        echo "$applicationName;$installedVersion;$modifiedDate;$flag"
+        latestVersion=$(getLogInfo "$2")
+        flag=$(validate "$modifiedDate" "$latestVersion" "$installedVersion")
+        echo "$2;$latestVersion;$installedVersion;$modifiedDate;$flag"
     else
-        echo "$1;-;-;-"
+        echo "$1 not found"
     fi
 }
 
@@ -41,7 +58,7 @@ else
     labels=$label
 fi
 
-echo "Application;Version;Date;Flag"
+echo "Application;Latest Version;Installed Version;Date;Flag"
 
 for label in "${labels[@]}"
 do
@@ -49,443 +66,446 @@ do
 
         adobereaderdc)
         installationPath="/Applications/Adobe Acrobat Reader.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "adobereaderdc"
         ;;
 
         anydesk)
         installationPath="/Applications/AnyDesk.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "anydesk"
         ;;
 
         audacity)
         installationPath="/Applications/Audacity.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "audacity"
         ;;
 
         blender)
         installationPath="/Applications/Blender.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "blender"
         ;;
 
         calibriteprofiler)
         installationPath="/Applications/calibrite PROFILER.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "calibriteprofiler"
         ;;
 
         clickshare)
         installationPath="/Applications/ClickShare.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "clickshare"
         ;;
 
         bbedit)
         installationPath="/Applications/BBEdit.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "bbedit"
         ;;
 
         bitwarden)
         installationPath="/Applications/Bitwarden.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "bitwarden"
         ;;
 
         brave)
         installationPath="/Applications/Brave Browser.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "brave"
         ;;
 
         caffeine)
         installationPath="/Applications/Caffeine.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "caffeine"
         ;;
 
         canva)
         installationPath="/Applications/Canva.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "canva"
         ;;
 
         chatgpt)
         installationPath="/Applications/ChatGPT.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "chatgpt"
         ;;
 
         cinema4d)
         installationPath="/Applications/Maxon Cinema 4D 2025/Cinema 4D.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "cinema4d"
         ;;
 
         citrixworkspace)
         installationPath="/Applications/Citrix Workspace.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "citrixworkspace"
         ;;
 
         connectfonts)
         installationPath="/Applications/Connect Fonts.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "connectfonts"
         ;;
 
         adobecreativeclouddesktop)
         installationPath="/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "adobecreativeclouddesktop"
         ;;
 
         cyberduck)
         installationPath="/Applications/Cyberduck.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "cyberduck"
         ;;
 
         deepl)
         installationPath="/Applications/DeepL.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "deepl"
         ;;
 
         discord)
         installationPath="/Applications/Discord.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "discord"
         ;;
 
         drawio)
         installationPath="/Applications/Draw.io.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "drawio"
         ;;
 
         dropbox)
         installationPath="/Applications/Dropbox.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "dropbox"
         ;;
 
         easyfind)
         installationPath="/Applications/Easyfind.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "easyfind"
         ;;
 
         elgatostreamdeck)
         installationPath="/Applications/Elgato Stream Deck.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "elgatostreamdeck"
         ;;
 
         figma)
         installationPath="/Applications/Figma.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "figma"
         ;;
 
         filemakerpro)
         installationPath="/Applications/FileMaker Pro.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "filemakerpro"
         ;;
 
         filezilla)
         installationPath="/Applications/FileZilla.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "filezilla"
         ;;
 
         firefoxpkg)
         installationPath="/Applications/Firefox.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "firefoxpkg"
         ;;
 
         gimp)
         installationPath="/Applications/GIMP.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "gimp"
         ;;
 
         githubdesktop)
         installationPath="/Applications/Github Desktop.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "githubdesktop"
         ;;
 
         gitkraken)
         installationPath="/Applications/GitKraken.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "gitkraken"
         ;;
 
         gotomeeting)
         installationPath="/Applications/GoToMeeting.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "gotomeeting"
         ;;
 
         googleearth)
         installationPath="/Applications/Google Earth Pro.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "googleearth"
         ;;
 
         googlechromepkg)
         installationPath="/Applications/Google Chrome.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "googlechromepkg"
         ;;
 
         googledrive)
         installationPath="/Applications/Google Drive.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "googledrive"
         ;;
 
         gpgsuite)
         installationPath="/Library/Application Support/GPGTools/GPGSuite_Updater.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "gpgsuite"
         ;;
 
         handbrake)
         installationPath="/Applications/HandBrake.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "handbrake"
         ;;
 
         imazingprofileeditor)
         installationPath="/Applications/iMazing Profile Editor.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "imazingprofileeditor"
         ;;
 
         inkscape)
         installationPath="/Applications/Inkscape.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "inkscape"
         ;;
 
         iterm2)
         installationPath="/Applications/iTerm.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "iterm2"
         ;;
 
         jetbrainsintellijideace)
         installationPath="/Applications/IntelliJ IDEA CE.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "jetbrainsintellijideace"
         ;;
 
         keka)
         installationPath="/Applications/Keka.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "keka"
         ;;
 
         lastpass)
         installationPath="/Applications/LastPass.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "lastpass"
         ;;
 
         logitechoptionsplus)
         installationPath="/Applications/logioptionsplus.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "logitechoptionsplus"
         ;;
 
         maxonapp)
         installationPath="/Applications/Maxon.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "maxonapp"
         ;;
 
         microsoftautoupdate)
         installationPath="/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "microsoftautoupdate"
         ;;
 
         microsoftcompanyportal)
         installationPath="/Applications/Company Portal.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "microsoftcompanyportal"
         ;;
 
         microsoftdefenderatp)
         installationPath="/Applications/Microsoft Defender.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "microsoftdefenderatp"
         ;;
 
         microsoftedge)
         installationPath="/Applications/Microsoft Edge.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "microsoftedge"
         ;;
 
         microsoftexcel)
         installationPath="/Applications/Microsoft Excel.app"
-        getInfo "$installationPath" "CFBundleVersion"
+        getInfo "$installationPath" "microsoftexcel" "CFBundleVersion"
         ;;
 
         microsoftonedrive)
         installationPath="/Applications/OneDrive.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "microsoftonedrive"
         ;;
 
         microsoftonenote)
         installationPath="/Applications/Microsoft OneNote.app"
-        getInfo "$installationPath" "CFBundleVersion"
+        getInfo "$installationPath" "microsoftonenote" "CFBundleVersion"
         ;;
 
         microsoftoutlook)
         installationPath="/Applications/Microsoft Outlook.app"
-        getInfo "$installationPath" "CFBundleVersion"
+        getInfo "$installationPath" "microsoftoutlook" "CFBundleVersion"
         ;;
 
         microsoftpowerpoint)
         installationPath="/Applications/Microsoft PowerPoint.app"
-        getInfo "$installationPath" "CFBundleVersion"
+        getInfo "$installationPath" "microsoftpowerpoint" "CFBundleVersion"
         ;;
 
         microsoftteamsclassic)
         installationPath="/Applications/Microsoft Teams Classic.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "microsoftteamsclassic"
         ;;
 
         microsoftteamsnew)
         installationPath="/Applications/Microsoft Teams.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "microsoftteamsnew"
         ;;
 
         microsoftwindowsapp)
         installationPath="/Applications/Windows app.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "microsoftwindowsapp"
         ;;
 
         microsoftword)
         installationPath="/Applications/Microsoft Word.app"
-        getInfo "$installationPath" "CFBundleVersion"
+        getInfo "$installationPath" "microsoftword" "CFBundleVersion"
         ;;
 
         miro)
         installationPath="/Applications/Miro.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "miro"
         ;;
 
         nextcloud)
         installationPath="/Applications/Nextcloud.app"
-        getInfo "$installationPath" "CFBundleShortVersionString" "CFBundleExecutable"
+        getInfo "$installationPath" "nextcloud" "CFBundleShortVersionString" "CFBundleExecutable"
         ;;
 
         nodejs)
         installedVersion=$(node --version | tr -d 'v')
         modifiedDate=$(date -r "/usr/local/bin/node" "+%Y-%m-%d")
-        flag=$(is_out_of_date "$modifiedDate")
-        echo "NodeJS;$installedVersion;$modifiedDate;$flag"
+        latestVersion=$(getLogInfo "nodejs")
+        flag=$(validate "$modifiedDate" "$latestVersion" "$installedVersion")
+        echo "nodejs;$latestVersion;$installedVersion;$modifiedDate;$flag"
         ;;
 
         nomad)
         installationPath="/Applications/NoMAD.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "nomad"
         ;;
 
         obs)
         installationPath="/Applications/obs.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "obs"
         ;;
 
         onyX)
         installationPath="/Applications/onyX.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "onyX"
         ;;
 
         pgadmin4)
         installationPath="/Applications/pgAdmin 4.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "pgadmin4"
         ;;
 
         postman)
         installationPath="/Applications/Postman.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "postman"
         ;;
 
         pycharmce)
         installationPath="/Applications/PyCharm CE.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "pycharmce"
         ;;
 
         rapidapi)
         installationPath="/Applications/RapidAPI.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "rapidapi"
         ;;
 
         r)
         installedVersion=$(R --version | head -n 1 | cut -d ' ' -f3)
         modifiedDate=$(R --version | head -n 1 | cut -d ' ' -f4 | tr -d '(' | tr -d ')')
-        flag=$(is_out_of_date "$modifiedDate")
-        echo "R;$installedVersion;$modifiedDate;$flag"
+        latestVersion=$(getLogInfo "r")
+        flag=$(validate "$modifiedDate" "$latestVersion" "$installedVersion")
+        echo "r;$latestVersion;$installedVersion;$modifiedDate;$flag"
         ;;
 
         rstudio)
         installationPath="/Applications/RStudio.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "rstudio"
         ;;
 
         rodecentral)
         installationPath="/Applications/RODE central.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "rodecentral"
         ;;
 
         signal)
         installationPath="/Applications/Signal.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "signal"
         ;;
 
         sketchupviewer)
         installationPath="/Applications/SketchUpViewer.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "sketchupviewer"
         ;;
 
         slack)
         installationPath="/Applications/Slack.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "slack"
         ;;
 
         spotify)
         installationPath="/Applications/Spotify.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "spotify"
         ;;
 
         swiftdialog)
         installedVersion=$(/usr/local/bin/dialog -v)
         modifiedDate=$(date -r "/usr/local/bin/dialog" "+%Y-%m-%d")
-        flag=$(is_out_of_date "$modifiedDate")
-        echo "swiftdialog;$installedVersion;$modifiedDate;$flag"
+        latestVersion=$(getLogInfo "swiftdialog")
+        flag=$(validate "$modifiedDate" "$latestVersion" "$installedVersion")
+        echo "swiftdialog;$latestVersion;$installedVersion;$modifiedDate;$flag"
         ;;
 
         teamviewer)
         installationPath="/Applications/TeamViewer.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "teamviewer"
         ;;
 
         pcoipclient)
         installationPath="/Applications/PCoIPClient.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "pcoipclient"
         ;;
 
         privileges2)
         installationPath="/Applications/privileges.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "privileges2"
         ;;
 
         textmate)
         installationPath="/Applications/TextMate.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "textmate"
         ;;
 
         theunarchiver)
         installationPath="/Applications/The Unarchiver.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "theunarchiver"
         ;;
 
         thunderbird)
         installationPath="/Applications/Thunderbird.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "thunderbird"
         ;;
 
         ultimakercura)
         installationPath="/Applications/UltiMaker Cura.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "ultimakercura"
         ;;
 
-        visualstudiocode)
+        microsoftvisualstudiocode)
         installationPath="/Applications/Visual Studio Code.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "microsoftvisualstudiocode"
         ;;
 
         vlc)
         installationPath="/Applications/VLC.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "vlc"
         ;;
 
         wacomdrivers)
         installationPath="/Applications/Wacom Tablet.localized/Wacom Center.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "wacomdrivers"
         ;;
 
         whatsapp)
         installationPath="/Applications/WhatsApp.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "whatsapp"
         ;;
 
         zoom)
         installationPath="/Applications/Zoom.us.app"
-        getInfo "$installationPath"
+        getInfo "$installationPath" "zoom"
         ;;
 
         *)

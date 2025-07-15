@@ -77,7 +77,7 @@ textmate
 theunarchiver
 thunderbird
 ultimakercura
-visualstudiocode
+microsoftvisualstudiocode
 vlc
 wacomdrivers
 whatsapp

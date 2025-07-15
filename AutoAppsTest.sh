@@ -24,7 +24,10 @@ validate() {
 }
 
 getLogInfo () {
-    latest_version=$(cat /var/log/Installomator.log | grep ": $1 : Latest version" | tail -1 | awk '{print $NF}')
+    latest_version=$(cat /var/log/Installomator.log | grep ": $1 : Latest version of" | tail -1 | awk '{print $NF}')
+    if [ -z "$latest_version" ]; then
+        latest_version="Unknown"
+    fi
     echo "$latest_version"
 }
 

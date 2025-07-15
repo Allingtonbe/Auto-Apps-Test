@@ -69,7 +69,7 @@ rodecentral
 #sketchupviewer
 slack
 spotify
-swiftdialog
+dialog
 teamviewer
 #pcoipclient
 privileges2

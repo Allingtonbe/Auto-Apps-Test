@@ -109,7 +109,7 @@ do
 
         brave)
         installationPath="/Applications/Brave Browser.app"
-        getInfo "$installationPath" "brave"
+        getInfo "$installationPath" "brave" "CFBundleVersion"
         ;;
 
         caffeine)
@@ -294,7 +294,7 @@ do
 
         microsoftcompanyportal)
         installationPath="/Applications/Company Portal.app"
-        getInfo "$installationPath" "microsoftcompanyportal"
+        getInfo "$installationPath" "microsoftcompanyportal" "CFBundleVersion"
         ;;
 
         microsoftdefenderatp)
@@ -443,10 +443,10 @@ do
         getInfo "$installationPath" "spotify"
         ;;
 
-        swiftdialog)
+        dialog)
         installedVersion=$(/usr/local/bin/dialog -v)
         modifiedDate=$(date -r "/usr/local/bin/dialog" "+%Y-%m-%d")
-        latestVersion=$(getLogInfo "swiftdialog")
+        latestVersion=$(getLogInfo "dialog")
         flag=$(validate "$modifiedDate" "$latestVersion" "$installedVersion")
         echo "swiftdialog;$latestVersion;$installedVersion;$modifiedDate;$flag"
         ;;
@@ -508,7 +508,7 @@ do
 
         zoom)
         installationPath="/Applications/Zoom.us.app"
-        getInfo "$installationPath" "zoom"
+        getInfo "$installationPath" "zoom" "CFBundleVersion"
         ;;
 
         *)

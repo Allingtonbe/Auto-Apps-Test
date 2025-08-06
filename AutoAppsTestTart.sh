@@ -1,6 +1,11 @@
 #!/bin/zsh
 
-label="$1"
+if [ -z "$1" ]; then
+    printf "Installomator label: "
+    read label
+else
+    label="$1"
+fi
 
 # brew install cirruslabs/cli/tart
 # tart clone ghcr.io/cirruslabs/macos-sequoia-base:latest sequoia-base

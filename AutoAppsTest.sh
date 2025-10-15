@@ -278,7 +278,7 @@ do
         ;;
 
         logitechoptionsplus)
-        installationPath="/Applications/logioptionsplus.app"
+        installationPath="/Applications/Logi Options+.app"
         getInfo "$installationPath" "logitechoptionsplus"
         ;;
 

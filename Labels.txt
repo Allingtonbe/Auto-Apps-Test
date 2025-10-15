@@ -23,7 +23,7 @@ easyfind
 elgatostreamdeck
 #figma
 filemakerpro
-filezilla
+#filezilla
 firefoxpkg
 gimp
 #githubdesktop

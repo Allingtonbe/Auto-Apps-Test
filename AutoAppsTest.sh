@@ -368,7 +368,7 @@ do
         ;;
 
         nodejs)
-        installedVersion=$(node --version | tr -d 'v')
+        installedVersion=$(/usr/local/bin/node -v)
         modifiedDate=$(date -r "/usr/local/bin/node" "+%Y-%m-%d")
         latestVersion=$(getLogInfo "nodejs")
         flag=$(validate "$modifiedDate" "$latestVersion" "$installedVersion")

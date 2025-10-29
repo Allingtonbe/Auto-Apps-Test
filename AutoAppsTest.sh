@@ -289,7 +289,7 @@ do
 
         microsoft365copilot)
         installationPath="/Applications/Microsoft 365 Copilot.app"
-        getInfo "$installationPath" "microsoft365copilot"
+        getInfo "$installationPath" "microsoft365copilot" "CFBundleVersion"
         ;;
 
         microsoftautoupdate)

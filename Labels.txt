@@ -42,6 +42,7 @@ jetbrainsintellijideace
 #lastpass
 logitechoptionsplus
 maxonapp
+microsoft365copilot
 #microsoftautoupdate
 microsoftcompanyportal
 microsoftdefenderatp

@@ -189,7 +189,7 @@ do
 
         filemakerpro)
         installationPath="/Applications/FileMaker Pro.app"
-        getInfo "$installationPath" "filemakerpro"
+        getInfo "$installationPath" "filemakerpro" "BuildVersion"
         ;;
 
         filezilla)

@@ -134,7 +134,7 @@ do
 
         citrixworkspace)
         installationPath="/Applications/Citrix Workspace.app"
-        getInfo "$installationPath" "citrixworkspace"
+        getInfo "$installationPath" "citrixworkspace" "CitrixVersionString"
         ;;
 
         connectfonts)

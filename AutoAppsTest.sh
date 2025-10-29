@@ -287,6 +287,11 @@ do
         getInfo "$installationPath" "maxonapp"
         ;;
 
+        microsoft365copilot)
+        installationPath="/Applications/Microsoft 365 Copilot.app"
+        getInfo "$installationPath" "microsoft365copilot"
+        ;;
+
         microsoftautoupdate)
         installationPath="/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app"
         getInfo "$installationPath" "microsoftautoupdate"

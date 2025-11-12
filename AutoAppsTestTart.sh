@@ -8,10 +8,10 @@ else
 fi
 
 # brew install cirruslabs/cli/tart
-# tart clone ghcr.io/cirruslabs/macos-sequoia-base:latest sequoia-base
+# tart clone ghcr.io/cirruslabs/macos-tahoe-base:latest tahoe-base
 
 echo "Starting installomator guest"
-tart clone sequoia-base installomator
+tart clone tahoe-base installomator
 tart run installomator --no-graphics &
 
 echo "Waiting for installomator guest to be ready"
